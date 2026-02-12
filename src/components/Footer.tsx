@@ -5,8 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center font-bold text-navy text-sm">A</div>
-              <span className="text-white font-bold text-xl">AlamoAnswer</span>
+              <img src="/logo.jpg" alt="AlamoAnswer" className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               AI-powered receptionist built for San Antonio businesses. Never miss another call, appointment, or customer.
@@ -19,7 +18,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Quick Links</h4>
             <ul className="space-y-2">
-              {["How It Works", "Features", "Pricing", "FAQ"].map((item) => (
+              {["How It Works", "Features", "FAQ"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
