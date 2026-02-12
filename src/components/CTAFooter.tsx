@@ -5,6 +5,7 @@ export default function CTAFooter() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [businessType, setBusinessType] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,9 +15,11 @@ export default function CTAFooter() {
     const data = {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       business: (form.elements.namedItem("business") as HTMLInputElement).value,
+      website: (form.elements.namedItem("website") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       businessType: (form.elements.namedItem("businessType") as HTMLSelectElement).value,
+      otherBusinessType: businessType === "other" ? (form.elements.namedItem("otherBusinessType") as HTMLInputElement).value : "",
     };
     try {
       const res = await fetch("https://ejshj07jrd.execute-api.us-east-1.amazonaws.com/contact", {
@@ -44,7 +47,7 @@ export default function CTAFooter() {
             Ready to Stop <span className="text-gold">Missing Calls?</span>
           </h2>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Get a free demo and see how AlamoAnswer can transform your business. No commitment, no credit card.
+            Tell us about your business and we&apos;ll show you how AlamoAnswer can help. No commitment required.
           </p>
         </div>
 
@@ -52,7 +55,7 @@ export default function CTAFooter() {
           <div className="mt-10 bg-white/10 backdrop-blur-sm rounded-2xl p-10 text-center">
             <div className="text-5xl mb-4">🎉</div>
             <h3 className="text-2xl font-bold text-gold">Thank You!</h3>
-            <p className="mt-2 text-gray-300">We&apos;ll reach out within 24 hours to set up your free demo.</p>
+            <p className="mt-2 text-gray-300">We&apos;ll reach out within 24 hours to discuss your needs.</p>
           </div>
         ) : (
           <form
@@ -75,6 +78,12 @@ export default function CTAFooter() {
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gold transition-colors"
               />
               <input
+                name="website"
+                type="url"
+                placeholder="Website (optional)"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gold transition-colors"
+              />
+              <input
                 name="email"
                 type="email"
                 required
@@ -91,6 +100,8 @@ export default function CTAFooter() {
             </div>
             <select
               name="businessType"
+              value={businessType}
+              onChange={(e) => setBusinessType(e.target.value)}
               className="w-full mt-4 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-gray-400 focus:outline-none focus:border-gold transition-colors"
             >
               <option value="">What type of business?</option>
@@ -102,16 +113,24 @@ export default function CTAFooter() {
               <option value="legal">Legal</option>
               <option value="other">Other</option>
             </select>
+            {businessType === "other" && (
+              <input
+                name="otherBusinessType"
+                type="text"
+                placeholder="Please describe your business"
+                className="w-full mt-4 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gold transition-colors"
+              />
+            )}
             {error && <p className="mt-3 text-red-400 text-sm text-center">{error}</p>}
             <button
               type="submit"
               disabled={submitting}
               className="mt-6 w-full bg-gold hover:bg-gold-light text-navy font-bold py-4 rounded-xl text-lg transition-all hover:scale-[1.02] shadow-lg shadow-gold/20 disabled:opacity-50"
             >
-              {submitting ? "Sending..." : "Get Your Free Demo →"}
+              {submitting ? "Sending..." : "Get More Info →"}
             </button>
             <p className="mt-3 text-center text-gray-400 text-xs">
-              Free 14-day trial. No credit card. Setup in 48 hours.
+              We&apos;ll reach out within 24 hours to discuss how we can help.
             </p>
           </form>
         )}

@@ -1,9 +1,7 @@
 export default function Hero() {
   return (
     <section className="relative bg-navy pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-      {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light opacity-80" />
-      {/* Decorative circles */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
       <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-gold/5 rounded-full blur-3xl" />
 
@@ -29,7 +27,7 @@ export default function Hero() {
             href="#demo"
             className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-gold/20"
           >
-            Get Your Free Demo →
+            Learn More →
           </a>
           <a
             href="#how-it-works"

@@ -12,7 +12,7 @@ export default function Navbar() {
             <span className="text-white font-bold text-xl">AlamoAnswer</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
-            {["How It Works", "Features", "Pricing", "FAQ"].map((item) => (
+            {["How It Works", "Features", "FAQ"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
@@ -25,7 +25,7 @@ export default function Navbar() {
               href="#demo"
               className="bg-gold hover:bg-gold-light text-navy font-semibold px-5 py-2 rounded-lg transition-colors text-sm"
             >
-              Get Free Demo
+              Get Started
             </a>
           </div>
           <button onClick={() => setOpen(!open)} className="md:hidden text-white" aria-label="Menu">
@@ -41,7 +41,7 @@ export default function Navbar() {
       </div>
       {open && (
         <div className="md:hidden bg-navy border-t border-white/10 px-4 pb-4 space-y-3">
-          {["How It Works", "Features", "Pricing", "FAQ"].map((item) => (
+          {["How It Works", "Features", "FAQ"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
@@ -52,7 +52,7 @@ export default function Navbar() {
             </a>
           ))}
           <a href="#demo" onClick={() => setOpen(false)} className="block bg-gold text-navy font-semibold px-5 py-2 rounded-lg text-center text-sm">
-            Get Free Demo
+            Get Started
           </a>
         </div>
       )}
