@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.jpg" alt="AlamoAnswer" className="h-10 w-auto" />
+              <img src="/logo.png" alt="AlamoAnswer" className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               AI-powered receptionist built for San Antonio businesses. Never miss another call, appointment, or customer.
